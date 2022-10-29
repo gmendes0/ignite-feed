@@ -1,0 +1,14 @@
+.wrapper {
+  max-width: 70rem; // 1120px
+  margin: 2rem auto;
+  padding: 0 1rem;
+
+  display: grid;
+  grid-template-columns: 256px 1fr; // 1 col de 256 e outra adaptavel
+  gap: 2rem;
+  align-items: flex-start; // por padrao ele tenta igualar os tamanhos 'stretch'
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}

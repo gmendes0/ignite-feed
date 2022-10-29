@@ -1,0 +1,130 @@
+.post {
+  background: var(--gray-800);
+  border-radius: 8px;
+  padding: 2.5rem;
+}
+
+// somente o primeiro header
+.post > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  time {
+    font-size: 0.857rem;
+    color: var(--gray-400);
+  }
+}
+
+// x + y = estiliza todos os y que tenha x antes
+.post + .post {
+  margin-top: 2rem;
+}
+
+.content {
+  line-height: 1.6;
+  color: var(--gray-300);
+  margin-top: 1.5rem;
+
+  p {
+    margin-top: 1rem;
+  }
+
+  a {
+    font-weight: bold;
+    color: var(--green-500);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--green-300);
+    }
+  }
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+
+  strong {
+    color: var(--gray-100);
+    line-height: 1.6;
+  }
+
+  span {
+    font-size: 0.875rem;
+    color: var(--gray-400);
+    line-height: 1.6;
+  }
+}
+
+.commentForm {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gray-600);
+
+  // primeiro strong
+  & > strong {
+    line-height: 1.6;
+    color: var(--gray-100);
+  }
+
+  textarea {
+    width: 100%;
+    background: var(--gray-900);
+    resize: none;
+    border: 0;
+    height: 6rem;
+    padding: 1rem;
+    border-radius: 8px;
+    color: var(--gray-100);
+    line-height: 1.4;
+    margin-top: 1rem;
+  }
+
+  // Quando houver focus em algum elemento destro do form, o style sera aplicado ao footer
+  // Colocar essa condicao de focus somente no textarea iria fazer com que quando o user
+  // trocasse o foco do textarea para o botao, ele desapareceria
+  &:focus-within footer {
+    visibility: visible;
+    max-height: none; // default
+  }
+}
+
+.commentForm footer {
+  button[type="submit"] {
+    padding: 1rem 1.5rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+    border: 0;
+    background: var(--green-500);
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.1s;
+
+    &:hover:not(:disabled) {
+      background: var(--green-300);
+    }
+
+    // display none nao é muito bom para acessibilidade
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+
+  visibility: hidden;
+  max-height: 0;
+}
+
+.commentList {
+  margin-top: 2rem;
+}
